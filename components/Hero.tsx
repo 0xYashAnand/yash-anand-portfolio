@@ -3,6 +3,7 @@
 import { ArrowRight, Code, Cpu, Database, Terminal } from "lucide-react";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Hero() {
   const mouseX = useMotionValue(0);
@@ -77,7 +78,7 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
-          <a
+          <Link
             href="#contact"
             className="group flex items-center bg-[#f58a07] hover:bg-[#e07d06] text-black pl-5 pr-7 py-3 rounded-full transition-all duration-300 hover:pl-6 hover:pr-8 relative overflow-hidden max-w-fit"
           >
@@ -93,7 +94,7 @@ export default function Hero() {
               <span className="font-medium text-base">Get In Touch</span>
             </div>
             <div className="absolute inset-0 w-full h-full border border-[#ffffff30] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-          </a>
+          </Link>
         </motion.div>
       </motion.div>
 

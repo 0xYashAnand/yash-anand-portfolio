@@ -3,6 +3,7 @@
 import { Skeleton } from "@/components/ui/skeleton";
 import { motion } from "framer-motion";
 import { Download } from "lucide-react";
+import Link from "next/link";
 import { useState, useEffect } from "react";
 
 export default function ResumePage() {
@@ -54,7 +55,7 @@ export default function ResumePage() {
           transition={{ duration: 0.3, delay: 0.2 }}
           className="flex justify-end mb-6"
         >
-          <a
+          <Link
             href={downloadUrl}
             target="_blank"
             rel="noopener noreferrer"
@@ -64,7 +65,7 @@ export default function ResumePage() {
             <span className="text-white group-hover:text-[#077af5] font-medium">
               Download PDF
             </span>
-          </a>
+          </Link>
         </motion.div>
 
         {/* PDF Viewer */}

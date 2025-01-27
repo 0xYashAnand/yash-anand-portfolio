@@ -23,6 +23,7 @@ import {
 } from "@/components/ui/tooltip";
 import redrobLogo from "@/public/redrob-logo.jpeg";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Experience() {
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
@@ -111,7 +112,7 @@ export default function Experience() {
                     <div className="space-y-4">
                       <div className="flex items-center gap-4">
                         <div className="relative h-16 w-16 rounded-lg overflow-hidden">
-                          <a
+                          <Link
                             href={exp.website}
                             target="_blank"
                             rel="noopener noreferrer"
@@ -123,7 +124,7 @@ export default function Experience() {
                               fill
                               className="object-contain"
                             />
-                          </a>
+                          </Link>
                         </div>
                         <div>
                           <h3 className="text-2xl font-bold text-[#FFA800] mb-2">
@@ -132,14 +133,14 @@ export default function Experience() {
                           <div className="flex flex-col md:flex-row md:items-center gap-4 text-[#bfcde0]">
                             <Briefcase className="h-4 w-4 flex-shrink-0" />
                             {exp.company}
-                            <a
+                            <Link
                               href={exp.website}
                               target="_blank"
                               rel="noopener noreferrer"
                               className="flex items-center gap-2 hover:text-[#FFA800] transition-colors"
                             >
                               <GlobeIcon className="h-4 w-4" /> Website
-                            </a>
+                            </Link>
                             <span className="flex items-center gap-2">
                               <Calendar className="h-4 w-4 flex-shrink-0" />
                               {exp.period}

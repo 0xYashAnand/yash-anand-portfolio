@@ -15,6 +15,7 @@ import { useState } from "react";
 import universityLogo from "@/public/university-logo.svg";
 import Image from "next/image";
 import { TooltipProvider } from "./ui/tooltip";
+import Link from "next/link";
 
 export default function Education() {
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
@@ -94,7 +95,7 @@ export default function Education() {
                                 <LibraryBig className="h-4 w-4 text-[#a63446]" />
                                 {edu.institution}
                               </span>
-                              <a
+                              <Link
                                 href={edu.website}
                                 target="_blank"
                                 rel="noopener noreferrer"
@@ -102,7 +103,7 @@ export default function Education() {
                               >
                                 <Globe className="h-4 w-4 text-[#a63446]" />
                                 Official Website
-                              </a>
+                              </Link>
                             </div>
 
                             <div className="flex flex-wrap items-center gap-4 mt-2">

@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Code, Menu, X, ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -67,9 +68,12 @@ export default function Header() {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.5 }}
                   >
-                    <span className="text-xl font-bold bg-gradient-to-r from-[#f58a07] to-[#f9b373] bg-clip-text text-transparent">
+                    <Link
+                      href="/"
+                      className="text-xl font-bold bg-gradient-to-r from-[#f58a07] to-[#f9b373] bg-clip-text text-transparent"
+                    >
                       Yash Anand
-                    </span>
+                    </Link>
                   </motion.div>
                   <nav className="hidden md:flex items-center space-x-6">
                     <ul className="flex space-x-6">
@@ -80,7 +84,7 @@ export default function Header() {
                           animate={{ opacity: 1, y: 0 }}
                           transition={{ duration: 0.5, delay: index * 0.1 }}
                         >
-                          <a
+                          <Link
                             href={
                               item === "Resume"
                                 ? "/resume"
@@ -89,11 +93,11 @@ export default function Header() {
                             className="text-[#bfcde0] hover:text-[#f58a07] transition duration-300"
                           >
                             {item}
-                          </a>
+                          </Link>
                         </motion.li>
                       ))}
                     </ul>
-                    <a
+                    <Link
                       href="/#contact"
                       className="group flex items-center bg-[#f58a07] hover:bg-[#e07d06] text-white pl-4 pr-6 py-2 rounded-full transition-all duration-300 hover:pl-6 hover:pr-8 relative overflow-hidden"
                     >
@@ -112,7 +116,7 @@ export default function Header() {
                         <span className="font-medium">Contact Me</span>
                       </div>
                       <div className="absolute inset-0 w-full h-full border-2 border-[#ffffff30] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    </a>
+                    </Link>
                   </nav>
                   <button
                     className="md:hidden text-[#bfcde0]"
@@ -141,9 +145,12 @@ export default function Header() {
               >
                 <div className="container mx-auto px-4 py-6">
                   <div className="flex items-center justify-between mb-8">
-                    <span className="text-xl font-bold bg-gradient-to-r from-[#f58a07] to-[#f9b373] bg-clip-text text-transparent">
+                    <Link
+                      href="/"
+                      className="text-xl font-bold bg-gradient-to-r from-[#f58a07] to-[#f9b373] bg-clip-text text-transparent"
+                    >
                       Yash Anand
-                    </span>
+                    </Link>
                     <button
                       className="text-[#bfcde0] p-2 hover:text-[#f58a07] transition-colors"
                       onClick={() => setIsOpen(false)}
@@ -172,14 +179,18 @@ export default function Header() {
                           visible: { opacity: 1, x: 0 },
                         }}
                       >
-                        <a
-                          href={`#${item.toLowerCase()}`}
+                        <Link
+                          href={
+                            item === "Resume"
+                              ? "/resume"
+                              : `/#${item.toLowerCase()}`
+                          }
                           className="flex items-center text-2xl text-[#bfcde0] hover:text-[#f58a07] py-3 px-4 rounded-lg transition-colors duration-300"
                           onClick={() => setIsOpen(false)}
                         >
                           <ArrowRight className="w-5 h-5 mr-3 text-[#f58a07]" />
                           {item}
-                        </a>
+                        </Link>
                       </motion.li>
                     ))}
                     <motion.li
@@ -189,8 +200,8 @@ export default function Header() {
                       }}
                       className="mt-8"
                     >
-                      <a
-                        href="#contact"
+                      <Link
+                        href="/#contact"
                         className="group flex items-center justify-between bg-gradient-to-r from-[#f58a07] to-[#f9b373] text-white px-6 py-4 rounded-full transition-all duration-300"
                         onClick={() => setIsOpen(false)}
                       >
@@ -198,7 +209,7 @@ export default function Header() {
                         <div className="ml-4 p-2 rounded-full bg-white/10 backdrop-blur-sm">
                           <ArrowRight className="w-6 h-6 transform group-hover:translate-x-1 transition-transform" />
                         </div>
-                      </a>
+                      </Link>
                     </motion.li>
                   </motion.ul>
                 </div>
