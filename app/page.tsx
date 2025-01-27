@@ -1,7 +1,6 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Education from "@/components/Education";
@@ -9,7 +8,6 @@ import Skills from "@/components/Skills";
 import Experience from "@/components/Experience";
 import Projects from "@/components/Projects";
 import ConnectSection from "@/components/ConnectSection";
-import Footer from "@/components/Footer";
 import { useSmoothScroll } from "@/hooks/useSmoothScroll";
 import { Resume } from "@/components/Resume";
 

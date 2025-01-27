@@ -108,8 +108,6 @@ export default function Hero() {
           <Image
             src={softwareDeveloper}
             alt="Yash Anand"
-            layout="fill"
-            objectFit="cover"
             className="shadow-xl"
           />
         </div>

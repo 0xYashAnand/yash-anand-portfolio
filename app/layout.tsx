@@ -6,6 +6,11 @@ import Header from "@/components/Header";
 export const metadata: Metadata = {
   title: "Yash Anand",
   description: "Portfolio of Yash Anand",
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/icon-192x192.png",
+    apple: "/icon-192x192.png",
+  },
 };
 
 export default function RootLayout({
