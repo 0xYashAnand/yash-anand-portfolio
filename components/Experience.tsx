@@ -6,9 +6,7 @@ import {
   Calendar,
   ChevronDown,
   Code,
-  Globe,
   Server,
-  Database,
   Zap,
   TrendingUp,
   Star,
@@ -21,9 +19,9 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import redrobLogo from "@/public/redrob-logo.jpeg";
 import Image from "next/image";
 import Link from "next/link";
+import { experiences, technologyIcons } from "@/lib/data/raw-data";
 
 export default function Experience() {
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
@@ -33,44 +31,6 @@ export default function Experience() {
 
   const handleAchievementHover = (index: number | null) => {
     setHoveredAchievement(index);
-  };
-
-  const experiences = [
-    {
-      title: "Associate Python Developer",
-      company: "Redrob By McKinley Rice · Full-time",
-      logo: redrobLogo,
-      website: "https://in.redrob.io/",
-      location: "Noida, UP",
-      period: "May 2023 - Jan 2024",
-      technologies: [
-        "NestJS",
-        "Prisma",
-        "Mongoose",
-        "Elasticsearch",
-        "Typescript",
-        "AWS S3",
-        "Google Generative AI",
-      ],
-      achievements: [
-        "Engineered scalable backend services serving over 1M API requests monthly with 99.9% uptime",
-        "Reduced query processing time by 40% through RESTful API optimizations",
-        "Achieved 50% query time reduction in job recommendation APIs",
-        "Implemented Mongoose aggregation pipelines handling 500k+ records",
-        "Integrated AI-powered continuous chat interface with document upload",
-        "Developed skill assessment assistant reducing time-to-hire by 30%",
-      ],
-    },
-  ];
-
-  const technologyIcons: { [key: string]: JSX.Element } = {
-    NestJS: <Code className="h-4 w-4" />,
-    Prisma: <Database className="h-4 w-4" />,
-    Mongoose: <Server className="h-4 w-4" />,
-    Elasticsearch: <Globe className="h-4 w-4" />,
-    Typescript: <Code className="h-4 w-4" />,
-    "AWS S3": <Code className="h-4 w-4" />,
-    "Google Generative AI": <Code className="h-4 w-4" />,
   };
 
   return (

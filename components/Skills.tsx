@@ -1,66 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Zap, Database, Code, Cloud, Globe } from "lucide-react";
-
-// Define individual skills with their images or icons
-const skills = [
-  {
-    name: "Nest.js",
-    image: "https://cdn.worldvectorlogo.com/logos/nestjs.svg",
-    invert: true,
-  },
-  {
-    name: "Node.js",
-    image: "https://cdn.worldvectorlogo.com/logos/nodejs-icon.svg",
-  },
-  {
-    name: "Express.js",
-    image: "https://cdn.worldvectorlogo.com/logos/express-109.svg",
-    invert: true,
-  },
-  { name: "RESTful APIs", icon: Zap },
-  { name: "Redis", image: "https://cdn.worldvectorlogo.com/logos/redis.svg" },
-  {
-    name: "MongoDB",
-    image: "https://cdn.worldvectorlogo.com/logos/mongodb-icon-1-1.svg",
-  },
-  {
-    name: "PostgreSQL",
-    image: "https://cdn.worldvectorlogo.com/logos/postgresql.svg",
-  },
-  {
-    name: "Prisma",
-    image: "https://cdn.worldvectorlogo.com/logos/prisma-3.svg",
-    invert: true,
-  },
-  { name: "Mongoose", icon: Database },
-  {
-    name: "Elasticsearch",
-    image: "https://cdn.worldvectorlogo.com/logos/elasticsearch.svg",
-  },
-  {
-    name: "TypeScript",
-    image: "https://cdn.worldvectorlogo.com/logos/typescript.svg",
-  },
-  {
-    name: "JavaScript",
-    image: "https://cdn.worldvectorlogo.com/logos/javascript-1.svg",
-  },
-  {
-    name: "Python",
-    image: "https://cdn.worldvectorlogo.com/logos/python-5.svg",
-  },
-  { name: "Git", image: "https://cdn.worldvectorlogo.com/logos/git-icon.svg" },
-  { name: "HTML5", image: "https://cdn.worldvectorlogo.com/logos/html-1.svg" },
-  { name: "CSS3", image: "https://cdn.worldvectorlogo.com/logos/css-3.svg" },
-  { name: "React", image: "https://cdn.worldvectorlogo.com/logos/react-2.svg" },
-  {
-    name: "Next.js",
-    image: "https://cdn.worldvectorlogo.com/logos/next-js.svg",
-    invert: true,
-  },
-];
+import { skills } from "@/lib/data/raw-data";
 
 export default function Skills() {
   return (

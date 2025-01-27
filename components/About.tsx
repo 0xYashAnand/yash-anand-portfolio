@@ -2,19 +2,9 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { Code, Database, Cpu, Cloud, GitBranch, Box } from "lucide-react";
 import MyImage from "@/public/myimage.svg";
+import { technologies } from "@/lib/data/raw-data";
 
 export default function About() {
-  const technologies = [
-    { name: "Nest.js", icon: <Code className="h-5 w-5" /> },
-    { name: "Prisma", icon: <Database className="h-5 w-5" /> },
-    { name: "Mongoose", icon: <Cpu className="h-5 w-5" /> },
-    { name: "MongoDB", icon: <Database className="h-5 w-5" /> },
-    { name: "Elasticsearch", icon: <Cloud className="h-5 w-5" /> },
-    { name: "TypeScript", icon: <Code className="h-5 w-5" /> },
-    { name: "Node.js", icon: <GitBranch className="h-5 w-5" /> },
-    { name: "Docker", icon: <Box className="h-5 w-5" /> },
-  ];
-
   return (
     <section id="about" className="py-20 max-w-4xl mx-auto px-4">
       <motion.h2

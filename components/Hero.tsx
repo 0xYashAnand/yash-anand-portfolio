@@ -1,10 +1,11 @@
 "use client";
 
-import { ArrowRight, Code, Cpu, Database, Terminal } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import softwareDeveloper from "../public/myimage-black.svg";
+import softwareDeveloper from "@/public/myimage-black.svg";
+import { techStack } from "@/lib/data/raw-data";
 
 export default function Hero() {
   const mouseX = useMotionValue(0);
@@ -13,8 +14,10 @@ export default function Hero() {
   const smoothMouseX = useSpring(mouseX, { damping: 50, stiffness: 400 });
   const smoothMouseY = useSpring(mouseY, { damping: 50, stiffness: 400 });
 
-  const rotateX = useTransform(smoothMouseY, [-300, 300], [10, -10]);
-  const rotateY = useTransform(smoothMouseX, [-300, 300], [-10, 10]);
+  const rotateX = useTransform(smoothMouseY, [-300, 300], [15, -15]);
+  const rotateY = useTransform(smoothMouseX, [-300, 300], [-15, 15]);
+  const translateX = useTransform(smoothMouseX, [-300, 300], [-30, 30]);
+  const translateY = useTransform(smoothMouseY, [-300, 300], [-30, 30]);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
@@ -22,22 +25,19 @@ export default function Hero() {
     mouseY.set(e.clientY - rect.top - rect.height / 2);
   };
 
-  const techStack = [
-    { Icon: Code, name: "Node.js" },
-    { Icon: Database, name: "MongoDB" },
-    { Icon: Cpu, name: "Python" },
-    { Icon: Terminal, name: "TypeScript" },
-  ];
-
   return (
-    // ... (keep previous imports and motion values setup)
-
-    <section className="relative flex flex-col lg:flex-row items-center justify-center min-h-screen text-center lg:text-left px-4 lg:px-10 overflow-hidden">
+    <section
+      className="relative flex flex-col lg:flex-row items-center justify-center min-h-screen text-center lg:text-left px-4 lg:px-10 overflow-hidden"
+      onMouseMove={handleMouseMove}
+    >
       {/* Content container */}
       <motion.div className="lg:w-1/2 mb-8 lg:mb-0 relative z-10 mx-8">
         <motion.h1
           className="text-5xl lg:text-7xl font-bold mb-6 tracking-tighter"
           style={{ rotateX, rotateY, perspective: 1000 }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
         >
           <span className="bg-gradient-to-r from-[#f58a07] to-[#a63446] text-transparent bg-clip-text animate-gradient">
             Yash Anand
@@ -73,7 +73,7 @@ export default function Hero() {
           ))}
         </motion.div>
 
-        {/* Refined Contact Button */}
+        {/* Contact Button */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -99,18 +99,98 @@ export default function Hero() {
         </motion.div>
       </motion.div>
 
-      {/* Image container */}
+      {/* Enhanced Image container */}
       <motion.div
         className="lg:w-1/2 relative z-10 mt-12 lg:mt-0"
-        style={{ rotateX, rotateY, perspective: 1000 }}
+        style={{
+          rotateX,
+          rotateY,
+          translateX,
+          translateY,
+          perspective: 1000,
+        }}
+        initial={{ opacity: 0, x: 20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{
+          duration: 0.8,
+          delay: 0.2,
+          type: "spring",
+          stiffness: 100,
+          damping: 20,
+        }}
       >
-        <div className="relative w-64 h-64 mx-auto lg:w-80 lg:h-80">
+        <motion.div
+          className="relative w-64 h-64 mx-auto lg:w-80 lg:h-80"
+          initial={{ scale: 0.95 }}
+          animate={{
+            scale: [1, 1.05, 1],
+            y: [0, -20, 0],
+          }}
+          transition={{
+            duration: 8,
+            ease: "easeInOut",
+            repeat: Infinity,
+            repeatType: "mirror",
+          }}
+          whileHover={{
+            scale: 1.05,
+            transition: { duration: 0.3 },
+          }}
+        >
+          {/* Floating gradient background */}
+          <motion.div
+            className="absolute inset-0 bg-gradient-to-r from-[#f58a07] to-[#a63446] rounded-full blur-3xl opacity-20"
+            animate={{
+              scale: [1, 1.2, 1],
+              opacity: [0.2, 0.3, 0.2],
+            }}
+            transition={{
+              duration: 6,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          />
+
+          {/* Main image with enhanced shadow */}
           <Image
             src={softwareDeveloper}
             alt="Yash Anand"
-            className="shadow-xl"
+            className="shadow-2xl hover:shadow-[0_20px_50px_rgba(0,0,0,0.2)] transition-shadow"
+            priority
+            style={{
+              transformStyle: "preserve-3d",
+            }}
           />
-        </div>
+
+          {/* Subtle particles animation */}
+          <motion.div
+            className="absolute inset-0 pointer-events-none"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+          >
+            {[...Array(6)].map((_, i) => (
+              <motion.div
+                key={i}
+                className="absolute bg-[#f58a07] rounded-full"
+                style={{
+                  width: Math.random() * 4 + 2 + "px",
+                  height: Math.random() * 4 + 2 + "px",
+                  top: Math.random() * 100 + "%",
+                  left: Math.random() * 100 + "%",
+                }}
+                animate={{
+                  y: [0, -40, 0],
+                  opacity: [0, 0.8, 0],
+                }}
+                transition={{
+                  duration: Math.random() * 2 + 3,
+                  repeat: Infinity,
+                  delay: Math.random() * 2,
+                }}
+              />
+            ))}
+          </motion.div>
+        </motion.div>
       </motion.div>
     </section>
   );

@@ -1,6 +1,5 @@
 // Education.tsx
 "use client";
-// className="bg-gradient-to-br from-[#1a1a1a] to-[#0a0a0a] rounded-xl p-6 shadow-lg"
 
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -12,33 +11,14 @@ import {
   LibraryBig,
 } from "lucide-react";
 import { useState } from "react";
-import universityLogo from "@/public/university-logo.svg";
+
 import Image from "next/image";
 import { TooltipProvider } from "./ui/tooltip";
 import Link from "next/link";
+import { education } from "@/lib/data/raw-data";
 
 export default function Education() {
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
-
-  const education = [
-    {
-      degree: "Bachelor of Technology",
-      major: "Computer Science and Engineering",
-      institution: "Indian Institute of Information Technology, Nagpur",
-      logo: universityLogo,
-      website: "https://www.iiitn.ac.in",
-      location: "Nagpur, Maharashtra",
-      period: "2019 - 2023",
-      courses: [
-        "Advanced Algorithms",
-        "Machine Learning",
-        "Cloud Computing",
-        "Data Structures",
-        "Database Systems",
-        "Artificial Intelligence",
-      ],
-    },
-  ];
 
   return (
     <TooltipProvider>
@@ -54,7 +34,7 @@ export default function Education() {
               initial={{ scale: 0.9 }}
               animate={{ scale: 1 }}
             >
-              📚 Academic Journey
+              Academic Journey
             </motion.h2>
             <p className="text-[#bfcde0] text-lg">
               Where Curiosity Meets Innovation
@@ -83,7 +63,7 @@ export default function Education() {
                         </div>
                         <div className="flex-1">
                           <h3 className="text-2xl font-bold text-[#f58a07]">
-                            {edu.degree}
+                            {edu.institution}
                           </h3>
                           <p className="text-[#bfcde0]/90 text-lg mb-3">
                             {edu.major}
@@ -93,7 +73,7 @@ export default function Education() {
                             <div className="flex items-center gap-3 flex-wrap">
                               <span className="flex items-center gap-2 bg-[#000505]/40 px-3 py-1.5 rounded-lg">
                                 <LibraryBig className="h-4 w-4 text-[#a63446]" />
-                                {edu.institution}
+                                {edu.degree}
                               </span>
                               <Link
                                 href={edu.website}

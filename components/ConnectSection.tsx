@@ -11,6 +11,7 @@ import {
   ArrowUpRight,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { socialLinks, email } from "@/lib/data/raw-data";
 
 export default function ConnectSection() {
   const copyEmail = async () => {
@@ -21,33 +22,6 @@ export default function ConnectSection() {
       alert("Failed to copy email");
     }
   };
-
-  const socialLinks = [
-    {
-      name: "GitHub",
-      url: "https://github.com/yourusername",
-      icon: Github,
-      color: "hover:text-[#f58a07]",
-    },
-    {
-      name: "LinkedIn",
-      url: "https://linkedin.com/in/yourusername",
-      icon: Linkedin,
-      color: "hover:text-[#0077b5]",
-    },
-    {
-      name: "Twitter",
-      url: "https://twitter.com/yourusername",
-      icon: Twitter,
-      color: "hover:text-[#1da1f2]",
-    },
-    {
-      name: "Email",
-      action: copyEmail,
-      icon: Mail,
-      color: "hover:text-[#a63446]",
-    },
-  ];
 
   return (
     <section id="contact" className="py-20 max-w-4xl mx-auto px-4">
@@ -88,15 +62,13 @@ export default function ConnectSection() {
             >
               <div className="flex items-center gap-4">
                 <Mail className="h-6 w-6 text-[#f58a07] flex-shrink-0" />
-                <p className="text-[#bfcde0] truncate">
-                  your.email@example.com
-                </p>
+                <p className="text-[#bfcde0] truncate">{email}</p>
               </div>
               <Button
                 variant="ghost"
                 size="sm"
                 onClick={copyEmail}
-                className="text-[#f58a07] hover:bg-[#000505]/10 transform transition-transform hover:scale-110"
+                className="text-[#f58a07] hover:bg-[#fcfcfc] hover:text-black transform transition-transform hover:scale-110"
               >
                 <ClipboardCopy className="h-4 w-4" />
               </Button>
@@ -111,7 +83,6 @@ export default function ConnectSection() {
                 href={link.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={link.action}
                 className={`flex items-center justify-between p-4 rounded-lg transition-all ${link.color} bg-[#000505]/30 border border-[#bfcde0]/10 hover:border-current group`}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
@@ -124,7 +95,7 @@ export default function ConnectSection() {
                 }}
               >
                 <div className="flex items-center gap-4">
-                  <link.icon className="h-6 w-6 transition-transform group-hover:scale-125" />
+                  {link.icon}
                   <span className="text-lg text-[#bfcde0]">{link.name}</span>
                 </div>
                 <ArrowUpRight className="h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity" />
