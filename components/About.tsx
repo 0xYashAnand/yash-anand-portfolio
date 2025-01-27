@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { Code, Database, Cpu, Cloud, GitBranch, Box } from "lucide-react";
-import MyImage from "@/public/myimage.jpg";
+import MyImage from "@/public/myimage.svg";
 
 export default function About() {
   const technologies = [
@@ -36,11 +36,11 @@ export default function About() {
       >
         <div className="flex flex-col md:flex-row items-center md:items-start gap-8">
           <motion.div
-            className="relative w-48 h-48 rounded-full bg-gradient-to-br from-[#f58a07] to-[#a63446] p-1 shadow-xl"
+            className="relative w-48 h-48 rounded-full  p-1 shadow-xl"
             whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 300 }}
           >
-            <div className="relative w-full h-full rounded-full overflow-hidden border-2 border-[#000505]/20">
+            <div className="relative w-full h-full overflow-hidden border-2 border-[#000505]/20">
               <Image
                 src={MyImage}
                 alt="Yash Anand"

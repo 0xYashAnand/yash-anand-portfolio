@@ -4,6 +4,7 @@ import { ArrowRight, Code, Cpu, Database, Terminal } from "lucide-react";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import softwareDeveloper from "../public/myimage-black.svg";
 
 export default function Hero() {
   const mouseX = useMotionValue(0);
@@ -105,11 +106,11 @@ export default function Hero() {
       >
         <div className="relative w-64 h-64 mx-auto lg:w-80 lg:h-80">
           <Image
-            src="/profile-image.jpg"
+            src={softwareDeveloper}
             alt="Yash Anand"
             layout="fill"
             objectFit="cover"
-            className="rounded-full shadow-xl border-[3px] border-[#f58a07] hover:border-[#a63446] transition-colors"
+            className="shadow-xl"
           />
         </div>
       </motion.div>
