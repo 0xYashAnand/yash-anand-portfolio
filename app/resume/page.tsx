@@ -10,7 +10,9 @@ export default function ResumePage() {
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
   const [lastUpdated, setLastUpdated] = useState("");
-  const GOOGLE_DRIVE_FILE_ID = process.env.GOOGLE_DRIVE_RESUME_FILE_ID;
+  const GOOGLE_DRIVE_FILE_ID =
+    process.env.GOOGLE_DRIVE_RESUME_FILE_ID ||
+    "1OeAIN7nzguIWttYfnW_NP2txF4Gi1gJA";
   const embedUrl = `https://drive.google.com/file/d/${GOOGLE_DRIVE_FILE_ID}/preview`;
   const downloadUrl = `https://drive.google.com/uc?export=download&id=${GOOGLE_DRIVE_FILE_ID}`;
 
@@ -112,15 +114,6 @@ export default function ResumePage() {
         >
           Last updated: {lastUpdated}
         </motion.div>
-
-        {/* Background Elements */}
-        <div className="fixed -top-48 -right-48 -z-10 h-96 w-96 rounded-full bg-gradient-to-r from-[#f58a07]/10 to-[#a63446]/10 blur-3xl opacity-20" />
-        <div className="fixed -bottom-48 -left-48 -z-10 h-96 w-96 rounded-full bg-gradient-to-r from-[#a63446]/10 to-[#f58a07]/10 blur-3xl opacity-20" />
-
-        {/* Grid Overlay */}
-        <div className="fixed inset-0 -z-20 opacity-10 [mask-image:linear-gradient(to_bottom,transparent,black)]">
-          <div className="absolute inset-0 bg-[url('/grid.svg')] bg-repeat" />
-        </div>
       </motion.div>
     </div>
   );
