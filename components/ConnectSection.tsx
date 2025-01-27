@@ -50,7 +50,7 @@ export default function ConnectSection() {
   ];
 
   return (
-    <section id="connect" className="py-20 max-w-4xl mx-auto px-4">
+    <section id="contact" className="py-20 max-w-4xl mx-auto px-4">
       <motion.h2
         className="text-4xl font-bold mb-12 text-center"
         initial={{ opacity: 0, y: 20 }}

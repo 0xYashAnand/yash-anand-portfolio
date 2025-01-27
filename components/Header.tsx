@@ -45,7 +45,7 @@ export default function Header() {
     };
   }, []);
 
-  const navItems = ["Experience", "Projects"];
+  const navItems = ["Experience", "Projects", "Resume"];
 
   return (
     <AnimatePresence>
@@ -81,7 +81,11 @@ export default function Header() {
                           transition={{ duration: 0.5, delay: index * 0.1 }}
                         >
                           <a
-                            href={`#${item.toLowerCase()}`}
+                            href={
+                              item === "Resume"
+                                ? "/resume"
+                                : `/#${item.toLowerCase()}`
+                            }
                             className="text-[#bfcde0] hover:text-[#f58a07] transition duration-300"
                           >
                             {item}
@@ -90,7 +94,7 @@ export default function Header() {
                       ))}
                     </ul>
                     <a
-                      href="#contact"
+                      href="/#contact"
                       className="group flex items-center bg-[#f58a07] hover:bg-[#e07d06] text-white pl-4 pr-6 py-2 rounded-full transition-all duration-300 hover:pl-6 hover:pr-8 relative overflow-hidden"
                     >
                       <div className="flex items-center space-x-2">

@@ -11,6 +11,7 @@ import Projects from "@/components/Projects";
 import ConnectSection from "@/components/ConnectSection";
 import Footer from "@/components/Footer";
 import { useSmoothScroll } from "@/hooks/useSmoothScroll";
+import { Resume } from "@/components/Resume";
 
 export default function Home() {
   useSmoothScroll();
@@ -23,7 +24,6 @@ export default function Home() {
         exit={{ opacity: 0 }}
         className="min-h-screen bg-[#000505] text-[#fefcfd]"
       >
-        <Header />
         <Hero />
         <main className="container mx-auto px-4 pt-20">
           <About />
@@ -31,9 +31,9 @@ export default function Home() {
           <Experience />
           <Projects />
           <Education />
+          <Resume />
           <ConnectSection />
         </main>
-        <Footer />
       </motion.div>
     </AnimatePresence>
   );

@@ -6,7 +6,7 @@ import { Heart } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="bg-gradient-to-t from-[#000505]/70 to-transparent py-8 mt-12">
+    <footer className="bg-gradient-to-r from-[#060606] to-[#000505] py-8">
       <div className="container mx-auto px-4">
         <motion.div
           className="text-center space-y-3"
