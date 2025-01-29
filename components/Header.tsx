@@ -52,7 +52,7 @@ export default function Header() {
     <AnimatePresence>
       {visible && (
         <motion.header
-          className="fixed top-4 left-4 right-4 z-50"
+           className="fixed top-4 left-0 right-0 z-50 w-screen px-4"
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -50 }}
