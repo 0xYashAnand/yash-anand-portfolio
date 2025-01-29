@@ -125,9 +125,15 @@ Contributions welcome! Please follow these steps:
 4. Push to branch (`git push origin feature/amazing-feature`)
 5. Open Pull Request
 
-## License
+## Color Palette
 
-Distributed under the MIT License. See `LICENSE` for more information.
+| Color | Hex Code | Preview |
+|-------|----------|---------|
+| Black | `#000505` | ![#000505](https://via.placeholder.com/15/000505/000505.png) |
+| Orange | `#f58a07` | ![#f58a07](https://via.placeholder.com/15/f58a07/f58a07.png) |
+| White | `#fefcfd` | ![#fefcfd](https://via.placeholder.com/15/fefcfd/fefcfd.png) |
+| Red | `#a63446` | ![#a63446](https://via.placeholder.com/15/a63446/a63446.png) |
+| Blue Gray | `#bfcde0` | ![#bfcde0](https://via.placeholder.com/15/bfcde0/bfcde0.png) |
 
 ---
 
