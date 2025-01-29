@@ -13,7 +13,7 @@ export const experiences = [
     logo: redrobLogo,
     website: "https://in.redrob.io/",
     location: "Noida, UP",
-    period: "May 2023 - Jan 2024",
+    period: "June 2024 - Jan 2025",
     technologies: [
       "NestJS",
       "Prisma",
@@ -22,8 +22,8 @@ export const experiences = [
       "Elasticsearch",
       "Typescript",
       "AWS S3",
-      "Gemini",
-      "OpenAI",
+      "Gemini API",
+      "OpenAI API",
       "Git",
     ],
     achievements: [
@@ -83,7 +83,7 @@ export const technologyIcons: { [key: string]: JSX.Element } = {
       height={20}
     />
   ),
-  Gemini: (
+  "Gemini API": (
     <Image
       src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Google_Gemini_logo.svg"
       alt="Google AI"
@@ -99,7 +99,7 @@ export const technologyIcons: { [key: string]: JSX.Element } = {
       height={20}
     />
   ),
-  OpenAI: (
+  "OpenAI API": (
     <Image
       src="https://cdn.worldvectorlogo.com/logos/openai-2.svg"
       alt="OpenAI"
@@ -200,6 +200,7 @@ export const projects = [
             alt="Express.js"
             width={20}
             height={20}
+            className="invert"
           />
         ),
       },
@@ -211,6 +212,7 @@ export const projects = [
             alt="MySQL"
             width={20}
             height={20}
+            className="invert"
           />
         ),
       },
