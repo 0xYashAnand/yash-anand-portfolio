@@ -1,11 +1,5 @@
 import redrobLogo from "@/public/redrob-logo.jpeg";
-import {
-  CircuitBoard,
-  Code2,
-  Database,
-  FileCode,
-  Zap,
-} from "lucide-react";
+import { CircuitBoard, Code2, Database, FileCode, Zap } from "lucide-react";
 import Image from "next/image";
 import img1 from "@/public/book-collection-cover.png";
 import universityLogo from "@/public/university-logo.svg";
@@ -14,7 +8,7 @@ import universityLogo from "@/public/university-logo.svg";
 
 export const experiences = [
   {
-    title: "Associate Python Developer",
+    title: "Backend Developer",
     company: "Redrob By McKinley Rice · Full-time",
     logo: redrobLogo,
     website: "https://in.redrob.io/",
@@ -248,7 +242,7 @@ export const education = [
     logo: universityLogo,
     website: "https://www.iiitn.ac.in",
     location: "Nagpur, Maharashtra",
-    period: "2019 - 2023",
+    period: "2020 - 2024",
     courses: [
       "Data Structures and Algorithms",
       "Machine Learning",
@@ -420,6 +414,22 @@ export const technologies = [
 // Define individual skills with their images or icons
 export const skills = [
   {
+    name: "C++",
+    image: "https://cdn.worldvectorlogo.com/logos/c.svg",
+  },
+  {
+    name: "TypeScript",
+    image: "https://cdn.worldvectorlogo.com/logos/typescript.svg",
+  },
+  {
+    name: "JavaScript",
+    image: "https://cdn.worldvectorlogo.com/logos/javascript-1.svg",
+  },
+  {
+    name: "Python",
+    image: "https://cdn.worldvectorlogo.com/logos/python-5.svg",
+  },
+  {
     name: "Nest.js",
     image: "https://cdn.worldvectorlogo.com/logos/nestjs.svg",
   },
@@ -451,18 +461,6 @@ export const skills = [
   {
     name: "Elasticsearch",
     image: "https://cdn.worldvectorlogo.com/logos/elasticsearch.svg",
-  },
-  {
-    name: "TypeScript",
-    image: "https://cdn.worldvectorlogo.com/logos/typescript.svg",
-  },
-  {
-    name: "JavaScript",
-    image: "https://cdn.worldvectorlogo.com/logos/javascript-1.svg",
-  },
-  {
-    name: "Python",
-    image: "https://cdn.worldvectorlogo.com/logos/python-5.svg",
   },
   { name: "Git", image: "https://cdn.worldvectorlogo.com/logos/git-icon.svg" },
   { name: "HTML5", image: "https://cdn.worldvectorlogo.com/logos/html-1.svg" },
