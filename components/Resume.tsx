@@ -11,7 +11,7 @@ export function Resume() {
 
   const GOOGLE_DRIVE_FILE_ID =
     process.env.GOOGLE_DRIVE_RESUME_FILE_ID ||
-    "1OeAIN7nzguIWttYfnW_NP2txF4Gi1gJA";
+    "12LtUyT32SdkscP4CLO5duPW8piydHmMm";
   const embedUrl = `https://drive.google.com/file/d/${GOOGLE_DRIVE_FILE_ID}/preview`;
   const downloadUrl = `https://drive.google.com/uc?export=download&id=${GOOGLE_DRIVE_FILE_ID}`;
 
