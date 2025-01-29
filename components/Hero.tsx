@@ -27,7 +27,7 @@ export default function Hero() {
 
   return (
     <section
-      className="relative flex flex-col lg:flex-row items-center justify-center min-h-screen text-center lg:text-left px-4 lg:px-10 overflow-hidden"
+      className="relative flex flex-col lg:flex-row items-center justify-center min-h-screen text-center lg:text-left px-4 lg:px-10 overflow-hidden pt-28 lg:mt-0"
       onMouseMove={handleMouseMove}
     >
       {/* Content container */}
@@ -78,6 +78,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
+          className="flex justify-center lg:justify-start"
         >
           <Link
             href="#contact"

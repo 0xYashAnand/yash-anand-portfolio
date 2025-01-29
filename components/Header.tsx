@@ -52,7 +52,7 @@ export default function Header() {
     <AnimatePresence>
       {visible && (
         <motion.header
-           className="fixed top-4 left-0 right-0 z-50 w-screen px-4"
+          className="fixed top-4 left-0 right-0 z-50 w-screen px-4"
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -50 }}
@@ -144,10 +144,10 @@ export default function Header() {
                 transition={{ duration: 0.3 }}
               >
                 <div className="container mx-auto px-4 py-6">
-                  <div className="flex items-center justify-between mb-8">
+                  <div className="flex items-center justify-between mb-8 mx-6">
                     <Link
                       href="/"
-                      className="text-xl font-bold bg-gradient-to-r from-[#f58a07] to-[#f9b373] bg-clip-text text-transparent"
+                      className="text-3xl font-bold bg-gradient-to-r from-[#f58a07] to-[#f9b373] bg-clip-text text-transparent"
                     >
                       Yash Anand
                     </Link>
@@ -202,10 +202,10 @@ export default function Header() {
                     >
                       <Link
                         href="/#contact"
-                        className="group flex items-center justify-between bg-gradient-to-r from-[#f58a07] to-[#f9b373] text-white px-6 py-4 rounded-full transition-all duration-300"
+                        className="group flex items-center justify-between bg-gradient-to-r from-[#f58a07] to-[#d6452c] text-white px-6 py-4 rounded-full transition-all duration-300"
                         onClick={() => setIsOpen(false)}
                       >
-                        <span className="text-lg font-medium">Contact Me</span>
+                        <span className="text-xl font-medium">Contact Me</span>
                         <div className="ml-4 p-2 rounded-full bg-white/10 backdrop-blur-sm">
                           <ArrowRight className="w-6 h-6 transform group-hover:translate-x-1 transition-transform" />
                         </div>
