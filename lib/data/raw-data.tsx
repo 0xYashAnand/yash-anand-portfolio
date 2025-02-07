@@ -3,6 +3,7 @@ import { CircuitBoard, Code2, Database, FileCode, Zap } from "lucide-react";
 import Image from "next/image";
 import img1 from "@/public/book-collection-cover.png";
 import universityLogo from "@/public/university-logo.svg";
+import MySQLImg from "@/public/mysql.svg";
 
 // Experiences
 
@@ -208,7 +209,7 @@ export const projects = [
         name: "MySQL",
         icon: (
           <Image
-            src="https://cdn.worldvectorlogo.com/logos/mysql-6.svg"
+            src= {MySQLImg}
             alt="MySQL"
             width={20}
             height={20}
@@ -402,7 +403,7 @@ export const technologies = [
     name: "MySQL",
     icon: (
       <Image
-        src="https://cdn.worldvectorlogo.com/logos/mysql-6.svg"
+        src= {MySQLImg}
         alt="MySQL"
         width={20}
         height={20}
