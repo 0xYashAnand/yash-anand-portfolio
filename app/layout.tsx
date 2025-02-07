@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import Script from "next/script";
 import "./globals.css";
 import Footer from "@/components/Footer";
@@ -10,7 +10,6 @@ export const metadata: Metadata = {
     "Experienced Backend Developer specializing in NestJS, Prisma, MongoDB, and scalable API design. Passionate about building high-performance applications.",
   keywords:
     "Yash Anand, Backend Developer, Full Stack Engineer, NestJS, Prisma, MongoDB, Node.js, Next.js, JavaScript, TypeScript, MySQL, Redis, API development",
-  viewport: "width=device-width, initial-scale=1.0",
   robots: "index, follow",
   openGraph: {
     title: "Yash Anand | Backend Developer | Full Stack Engineer",
@@ -42,6 +41,14 @@ export const metadata: Metadata = {
     shortcut: "/icon-192x192.png",
     apple: "/icon-192x192.png",
   },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+  colorScheme: "dark",
 };
 
 export default function RootLayout({
