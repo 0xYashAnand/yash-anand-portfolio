@@ -90,7 +90,7 @@ export default function RootLayout({
           })}
         </Script>
       </head>
-      <body className="bg-dark text-white">
+      <body>
         <Header />
         {children}
         <Footer />
