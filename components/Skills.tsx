@@ -1,129 +1,52 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useState, useEffect, useRef } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { skills } from "@/lib/data/raw-data";
 
 export default function Skills() {
+  const [selectedSkill, setSelectedSkill] = useState<number | null>(null);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  // Toggle selected skill
+  const handleSkillClick = (index: number) => {
+    setSelectedSkill(selectedSkill === index ? null : index);
+  };
+
+  // Handle click outside to deselect skill
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (sectionRef.current && selectedSkill !== null) {
+        const skillItems = sectionRef.current.querySelectorAll(".skill-item");
+        let clickedOnSkill = false;
+
+        skillItems.forEach((item) => {
+          if (item.contains(event.target as Node)) {
+            clickedOnSkill = true;
+          }
+        });
+
+        if (!clickedOnSkill) {
+          setSelectedSkill(null);
+        }
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [selectedSkill]);
+
   return (
-    <section id="skills" className="py-20 max-w-6xl mx-auto px-4">
-      <motion.h2
-        className="text-4xl font-bold mb-16 text-center"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        style={{
-          background: "linear-gradient(45deg, #f58a07, #a63446)",
-          WebkitBackgroundClip: "text",
-          WebkitTextFillColor: "transparent",
-        }}
-      >
-        Skills
-      </motion.h2>
-
-      {/* Flex container for skills */}
-      <div className="flex flex-wrap justify-center gap-6">
-        {skills.map((skill, index) => (
-          <motion.div
-            key={index}
-            className="flex flex-col items-center justify-center gap-3 w-[120px]"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{
-              duration: 0.6,
-              delay: index * 0.05,
-              ease: "easeOut",
-            }}
-          >
-            {/* Image/Icon Container */}
-            <motion.div
-              className="relative w-20 h-20 cursor-pointer"
-              whileHover={{
-                transition: { staggerChildren: 0.1 },
-              }}
-            >
-              {skill.image ? (
-                <>
-                  <motion.img
-                    src={skill.image}
-                    alt={skill.name}
-                    className={`w-full h-full object-contain ${
-                      skill.invert
-                        ? "invert brightness-150"
-                        : "filter drop-shadow-[0_4px_6px_rgba(165,180,208,0.25)]"
-                    }`}
-                    initial={{ scale: 1 }}
-                    whileHover={{
-                      scale: 1.15,
-                      transition: {
-                        type: "spring",
-                        stiffness: 300,
-                        damping: 10,
-                      },
-                    }}
-                  />
-                  <motion.div
-                    className="absolute inset-0 rounded-full bg-gradient-to-br from-[#f58a07]/20 to-[#a63446]/20 blur-lg opacity-0"
-                    whileHover={{
-                      opacity: 1,
-                      transition: { duration: 0.4 },
-                    }}
-                  />
-                </>
-              ) : (
-                <motion.div
-                  className="w-full h-full flex items-center justify-center"
-                  whileHover={{
-                    scale: 1.15,
-                    transition: {
-                      type: "spring",
-                      stiffness: 300,
-                      damping: 10,
-                    },
-                  }}
-                >
-                  {skill.icon && (
-                    <skill.icon className="w-12 h-12 text-[#f58a07]" />
-                  )}
-                </motion.div>
-              )}
-            </motion.div>
-
-            {/* Text Label */}
-            <motion.div className="text-center w-full">
-              <motion.span
-                className="text-[#bfcde0] text-sm font-medium relative inline-block"
-                initial={{ y: 0 }}
-                whileHover={{
-                  y: -3,
-                  color: "#f58a07",
-                  transition: {
-                    duration: 0.3,
-                    ease: "easeOut",
-                  },
-                }}
-              >
-                {skill.name}
-                <motion.span
-                  className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-[#f58a07] to-[#a63446]"
-                  initial={{ scaleX: 0, originX: 0 }}
-                  whileHover={{
-                    scaleX: 1,
-                    originX: 0,
-                    transition: {
-                      duration: 0.4,
-                      ease: [0.22, 1, 0.36, 1],
-                    },
-                  }}
-                />
-              </motion.span>
-            </motion.div>
-          </motion.div>
-        ))}
-      </div>
-
-      {/* Decorative motion elements */}
+    <section
+      id="skills"
+      ref={sectionRef}
+      className="py-16 relative overflow-hidden"
+    >
+      {/* Floating bubble background animation */}
       <motion.div
-        className="absolute top-0 left-0 w-full h-full pointer-events-none"
+        className="absolute top-0 left-0 w-full h-full pointer-events-none -z-1"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
       >
@@ -149,7 +72,137 @@ export default function Skills() {
             }}
           />
         ))}
+        {[...Array(20)].map((_, i) => (
+          <motion.div
+            key={`small-${i}`}
+            className="absolute rounded-full bg-[#a63446]"
+            initial={{
+              x: Math.random() * 100 - 50,
+              y: Math.random() * 100 - 50,
+              width: 5 + Math.random() * 15,
+              height: 5 + Math.random() * 15,
+              opacity: 0.05 + Math.random() * 0.15,
+            }}
+            animate={{
+              x: Math.random() * 150 - 75,
+              y: Math.random() * 150 - 75,
+              opacity: [
+                0.05 + Math.random() * 0.15,
+                0.15 + Math.random() * 0.15,
+                0.05 + Math.random() * 0.15,
+              ],
+            }}
+            transition={{
+              repeat: Number.POSITIVE_INFINITY,
+              repeatType: "reverse",
+              duration: 5 + Math.random() * 10,
+              ease: "easeInOut",
+              times: [0, 0.5, 1],
+            }}
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+            }}
+          />
+        ))}
       </motion.div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
+        <motion.h2
+          className="text-3xl sm:text-4xl font-bold mb-12 text-center bg-gradient-to-r from-[#f58a07] to-[#a63446] bg-clip-text text-transparent"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
+          Skills
+        </motion.h2>
+
+        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-6 justify-center">
+          {skills.map((skill, index) => (
+            <motion.div
+              key={index}
+              className="flex flex-col items-center gap-2"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.05 }}
+              viewport={{ once: true }}
+            >
+              <motion.div
+                className={`skill-item w-16 h-16 sm:w-20 sm:h-20 p-2 rounded-lg bg-[#ffffff08] border border-[#ffffff10] hover:border-[#f58a07] transition-all relative cursor-pointer ${
+                  selectedSkill === index ? "border-[#f58a07]" : ""
+                }`}
+                whileHover={{ scale: 1.05 }}
+                onClick={() => handleSkillClick(index)}
+                layout
+              >
+                {/* Glow effect when selected */}
+                <AnimatePresence>
+                  {selectedSkill === index && (
+                    <motion.div
+                      className="absolute inset-0 rounded-lg bg-[#f58a07] opacity-20 blur-sm"
+                      initial={{ scale: 0.8, opacity: 0 }}
+                      animate={{ scale: 1, opacity: 0.2 }}
+                      exit={{ scale: 1.2, opacity: 0 }}
+                      transition={{ duration: 0.5 }}
+                    />
+                  )}
+                </AnimatePresence>
+
+                {/* Skill icon with rotation animation */}
+                <motion.div
+                  animate={
+                    selectedSkill === index
+                      ? {
+                          rotateY: 360,
+                          scale: [1, 1.2, 1],
+                          transition: {
+                            rotateY: { duration: 0.8, ease: "easeInOut" },
+                            scale: { duration: 0.8, times: [0, 0.5, 1] },
+                          },
+                        }
+                      : {}
+                  }
+                  className="w-full h-full flex items-center justify-center"
+                >
+                  {skill.image ? (
+                    <img
+                      src={skill.image || "/placeholder.svg"}
+                      alt={skill.name}
+                      className={`w-full h-full object-contain ${
+                        skill.invert ? "invert" : ""
+                      }`}
+                    />
+                  ) : (
+                    skill.icon && (
+                      <skill.icon className="w-full h-full text-[#f58a07]" />
+                    )
+                  )}
+                </motion.div>
+              </motion.div>
+
+              {/* Skill name with animation when selected */}
+              <motion.span
+                className="text-sm sm:text-base text-[#bfcde0]"
+                animate={
+                  selectedSkill === index
+                    ? {
+                        color: "#f58a07",
+                        fontWeight: "bold",
+                        scale: [1, 1.1, 1],
+                        transition: {
+                          scale: { duration: 0.5, times: [0, 0.5, 1] },
+                        },
+                      }
+                    : {}
+                }
+              >
+                {skill.name}
+              </motion.span>
+            </motion.div>
+          ))}
+        </div>
+      </div>
     </section>
   );
 }

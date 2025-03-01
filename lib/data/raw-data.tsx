@@ -14,7 +14,7 @@ export const experiences = [
     logo: redrobLogo,
     website: "https://in.redrob.io/",
     location: "Noida, UP",
-    period: "June 2024 - Jan 2025",
+    period: "Jun 2024 - Jan 2025",
     technologies: [
       "NestJS",
       "Prisma",
@@ -209,7 +209,7 @@ export const projects = [
         name: "MySQL",
         icon: (
           <Image
-            src= {MySQLImg}
+            src={MySQLImg}
             alt="MySQL"
             width={20}
             height={20}
@@ -401,14 +401,7 @@ export const technologies = [
   },
   {
     name: "MySQL",
-    icon: (
-      <Image
-        src= {MySQLImg}
-        alt="MySQL"
-        width={20}
-        height={20}
-      />
-    ),
+    icon: <Image src={MySQLImg} alt="MySQL" width={20} height={20} />,
   },
 ];
 
@@ -416,26 +409,25 @@ export const technologies = [
 
 // Define individual skills with their images or icons
 export const skills = [
+  // Languages
+  { name: "C", image: "https://cdn.worldvectorlogo.com/logos/c-1.svg" },
+  { name: "C++", image: "https://cdn.worldvectorlogo.com/logos/c.svg" },
+  { name: "Java", image: "https://cdn.worldvectorlogo.com/logos/java-4.svg" },
   {
-    name: "C++",
-    image: "https://cdn.worldvectorlogo.com/logos/c.svg",
-  },
-  {
-    name: "TypeScript",
-    image: "https://cdn.worldvectorlogo.com/logos/typescript.svg",
+    name: "Python",
+    image: "https://cdn.worldvectorlogo.com/logos/python-5.svg",
   },
   {
     name: "JavaScript",
     image: "https://cdn.worldvectorlogo.com/logos/javascript-1.svg",
   },
   {
-    name: "Python",
-    image: "https://cdn.worldvectorlogo.com/logos/python-5.svg",
+    name: "TypeScript",
+    image: "https://cdn.worldvectorlogo.com/logos/typescript.svg",
   },
-  {
-    name: "Nest.js",
-    image: "https://cdn.worldvectorlogo.com/logos/nestjs.svg",
-  },
+  { name: "SQL", icon: Database },
+
+  // Backend Tech
   {
     name: "Node.js",
     image: "https://cdn.worldvectorlogo.com/logos/nodejs-icon.svg",
@@ -445,11 +437,19 @@ export const skills = [
     image: "https://cdn.worldvectorlogo.com/logos/express-109.svg",
     invert: true,
   },
+  {
+    name: "Nest.js",
+    image: "https://cdn.worldvectorlogo.com/logos/nestjs.svg",
+  },
   { name: "RESTful APIs", icon: Zap },
   { name: "Redis", image: "https://cdn.worldvectorlogo.com/logos/redis.svg" },
   {
     name: "MongoDB",
     image: "https://cdn.worldvectorlogo.com/logos/mongodb-icon-1-1.svg",
+  },
+  {
+    name: "MySQL",
+    image: "https://cdn.worldvectorlogo.com/logos/mysql-logo-pure.svg",
   },
   {
     name: "PostgreSQL",
@@ -460,12 +460,16 @@ export const skills = [
     image: "https://cdn.worldvectorlogo.com/logos/prisma-3.svg",
     invert: true,
   },
-  { name: "Mongoose", icon: Database },
+  {
+    name: "Mongoose",
+    icon: Database,
+  },
   {
     name: "Elasticsearch",
     image: "https://cdn.worldvectorlogo.com/logos/elasticsearch.svg",
   },
-  { name: "Git", image: "https://cdn.worldvectorlogo.com/logos/git-icon.svg" },
+
+  // Frontend Tech
   { name: "HTML5", image: "https://cdn.worldvectorlogo.com/logos/html-1.svg" },
   { name: "CSS3", image: "https://cdn.worldvectorlogo.com/logos/css-3.svg" },
   { name: "React", image: "https://cdn.worldvectorlogo.com/logos/react-2.svg" },
@@ -473,6 +477,24 @@ export const skills = [
     name: "Next.js",
     image: "https://cdn.worldvectorlogo.com/logos/next-js.svg",
     invert: true,
+  },
+  {
+    name: "Tailwind CSS",
+    image: "https://cdn.worldvectorlogo.com/logos/tailwind-css-2.svg",
+  },
+  { name: "Vue.js", image: "https://cdn.worldvectorlogo.com/logos/vue-9.svg" },
+
+  // DevOps
+  { name: "Git", image: "https://cdn.worldvectorlogo.com/logos/git-icon.svg" },
+  {
+    name: "GitHub",
+    image: "https://cdn.worldvectorlogo.com/logos/github-icon-2.svg",
+  },
+  { name: "Docker", image: "https://cdn.worldvectorlogo.com/logos/docker.svg" },
+  { name: "AWS", image: "https://cdn.worldvectorlogo.com/logos/aws-2.svg" },
+  {
+    name: "Postman",
+    image: "https://cdn.worldvectorlogo.com/logos/postman.svg",
   },
 ];
 

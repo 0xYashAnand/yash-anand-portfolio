@@ -25,7 +25,9 @@ export default function Home() {
         <Hero />
         <main className="container mx-auto px-4 pt-20">
           <About />
-          <Skills />
+          <div className="relative overflow-hidden">
+            <Skills />
+          </div>
           <Experience />
           <Projects />
           <Education />
