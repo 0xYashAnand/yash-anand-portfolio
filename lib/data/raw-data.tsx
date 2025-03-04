@@ -1,7 +1,8 @@
 import redrobLogo from "@/public/redrob-logo.jpeg";
 import { CircuitBoard, Code2, Database, FileCode, Zap } from "lucide-react";
 import Image from "next/image";
-import img1 from "@/public/book-collection-cover.png";
+import BookCollectionImg from "@/public/book-collection-cover.png";
+import NexTaskAppImg from "@/public/nextask-app-cover.png";
 import universityLogo from "@/public/university-logo.svg";
 import MySQLImg from "@/public/mysql.svg";
 
@@ -123,6 +124,76 @@ export const technologyIcons: { [key: string]: JSX.Element } = {
 
 export const projects = [
   {
+    title: "NexTask App",
+    description:
+      "A powerful app for small business owners to manage invoices, oversee staff, and monitor sales effortlessly. From creating custom invoices to tracking team incentives across branches, it’s your go-to solution for streamlined operations.",
+    technologies: [
+      {
+        name: "Next.js",
+        icon: (
+          <Image
+            src="https://cdn.worldvectorlogo.com/logos/next-js.svg"
+            alt="Next.js"
+            width={20}
+            height={20}
+            className="invert"
+          />
+        ),
+      },
+      {
+        name: "Tailwind CSS",
+        icon: (
+          <Image
+            src="https://cdn.worldvectorlogo.com/logos/tailwind-css-2.svg"
+            alt="Tailwind CSS"
+            width={20}
+            height={20}
+          />
+        ),
+      },
+      {
+        name: "MongoDB",
+        icon: (
+          <Image
+            src="https://cdn.worldvectorlogo.com/logos/mongodb-icon-1.svg"
+            alt="MongoDB"
+            width={20}
+            height={20}
+          />
+        ),
+      },
+      {
+        name: "Mongoose",
+        icon: <Database className="h-5 w-5 text-green-500" />,
+      },
+      {
+        name: "Nest.js",
+        icon: (
+          <Image
+            src="https://cdn.worldvectorlogo.com/logos/nestjs.svg"
+            alt="NestJS"
+            width={20}
+            height={20}
+          />
+        ),
+      },
+      {
+        name: "TypeScript",
+        icon: (
+          <Image
+            src="https://cdn.worldvectorlogo.com/logos/typescript-2.svg"
+            alt="TypeScript"
+            width={20}
+            height={20}
+          />
+        ),
+      },
+    ],
+    github: "https://github.com/0xYashAnand/nextask-app-ui",
+    live: "https://nextask-app.netlify.app",
+    image: NexTaskAppImg,
+  },
+  {
     title: "Book Collection",
     description:
       "This application allows users to manage their book collections with a user-friendly interface. It interacts with a backend service to perform CRUD operations and fetch additional book details using external APIs.",
@@ -231,7 +302,7 @@ export const projects = [
     ],
     github: "https://github.com/0xYashAnand/book-collection-api",
     live: "https://save-your-books.netlify.app",
-    image: img1,
+    image: BookCollectionImg,
   },
 ];
 

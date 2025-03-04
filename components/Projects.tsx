@@ -2,10 +2,15 @@
 
 import { motion } from "framer-motion";
 import { Github, ExternalLink } from "lucide-react";
-import Image from "next/image";
+import Image, { type StaticImageData } from "next/image";
 import { projects } from "@/lib/data/raw-data";
+import { useState } from "react";
 
 export default function Projects() {
+  const [selectedImage, setSelectedImage] = useState<
+    string | StaticImageData | null
+  >(null);
+
   // Container animation variants
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -61,7 +66,7 @@ export default function Projects() {
             }}
             transition={{
               duration: 6 + Math.random() * 4, // Slower cycle
-              repeat: Infinity,
+              repeat: Number.POSITIVE_INFINITY,
               ease: "easeInOut",
             }}
           />
@@ -92,33 +97,36 @@ export default function Projects() {
             <motion.div
               key={index}
               variants={itemVariants}
-              className="group bg-gradient-to-br from-[#000505]/80 to-[#1a1a2e]/80 rounded-xl p-5 md:p-6 
+              className="bg-gradient-to-br from-[#000505]/80 to-[#1a1a2e]/80 rounded-xl p-5 md:p-6 
                 shadow-xl backdrop-blur-sm border border-[#bfcde0]/10 hover:border-[#f58a07]/40 
                 transition-all duration-500" // Smoother hover transition
             >
               <div className="flex flex-col gap-6 lg:gap-8 lg:flex-row items-start">
-                {/* Image Container (enhanced hover) */}
+                {/* Image Container */}
                 <motion.div
-                  className="w-full lg:w-5/12 relative h-56 sm:h-64 lg:h-72 rounded-lg overflow-hidden 
-                    border border-[#bfcde0]/20 group-hover:border-[#f58a07]/40"
-                  whileHover={{ scale: 1.03, transition: { duration: 0.4 } }}
+                  className="w-full lg:w-5/12 relative aspect-[16/9] rounded-lg overflow-hidden 
+                    border border-[#bfcde0]/20 hover:border-[#f58a07]/40 cursor-pointer bg-[#1a1a2e]"
+                  whileHover={{ opacity: 0.9 }}
+                  onClick={() => setSelectedImage(project.image)}
                 >
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-110" // Slower hover
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 42vw)"
-                    placeholder="blur" // Added for better UX
-                    priority={index < 2}
-                  />
+                  <div className="p-2 h-full w-full">
+                    <Image
+                      src={project.image || "/placeholder.svg"}
+                      alt={project.title}
+                      fill
+                      className="object-contain rounded-lg"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 42vw"
+                      placeholder="blur"
+                      priority={index < 2}
+                    />
+                  </div>
                 </motion.div>
 
                 {/* Content Container */}
                 <div className="w-full lg:w-7/12 space-y-4">
                   <h3
                     className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-[#f58a07] to-[#a63446] 
-                    text-transparent bg-clip-text transition-all duration-300 group-hover:brightness-125"
+                    text-transparent bg-clip-text transition-all duration-300 hover:brightness-125"
                   >
                     {project.title}
                   </h3>
@@ -132,7 +140,7 @@ export default function Projects() {
                       <motion.span
                         key={i}
                         className="px-2.5 py-1 text-xs sm:text-sm bg-[#000505]/50 rounded-md 
-                          flex items-center gap-1.5 border border-[#bfcde0]/10 group-hover:border-[#f58a07]/30"
+                          flex items-center gap-1.5 border border-[#bfcde0]/10 hover:border-[#f58a07]/30 transition-colors duration-300"
                         initial={{ opacity: 0, x: -20 }} // More pronounced entrance
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: i * 0.15, duration: 0.8 }} // Slower and staggered
@@ -178,6 +186,49 @@ export default function Projects() {
           ))}
         </motion.div>
       </div>
+      {/* Image Modal */}
+      {selectedImage && (
+        <div
+          className="fixed inset-0 bg-black/80 flex justify-center items-center z-50"
+          onClick={() => setSelectedImage(null)}
+        >
+          <div
+            className="relative w-[90%] sm:w-[80%] lg:w-[70%] max-h-[90vh] overflow-hidden"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="relative">
+              <Image
+                src={selectedImage || "/placeholder.svg"}
+                alt="Project preview"
+                width={1200}
+                height={675}
+                className="w-full h-auto rounded-lg shadow-xl object-contain bg-[#1a1a2e]"
+              />
+              <button
+                onClick={() => setSelectedImage(null)}
+                className="absolute top-4 right-4 bg-red-700/80 hover:bg-red-700 text-white rounded-full p-2
+                  transition-all duration-200 hover:scale-110"
+                aria-label="Close modal"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <line x1="18" y1="6" x2="6" y2="18"></line>
+                  <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
