@@ -3,6 +3,7 @@ import { CircuitBoard, Code2, Database, FileCode, Zap } from "lucide-react";
 import Image from "next/image";
 import BookCollectionImg from "@/public/book-collection-cover.png";
 import NexTaskAppImg from "@/public/nextask-app-cover.png";
+import ExpenseTrackerImg from "@/public/expense-tracker-cover.png";
 import universityLogo from "@/public/university-logo.svg";
 import MySQLImg from "@/public/mysql.svg";
 
@@ -192,6 +193,73 @@ export const projects = [
     github: "https://github.com/0xYashAnand/nextask-app-ui",
     live: "https://nextask-app.netlify.app",
     image: NexTaskAppImg,
+  },
+  {
+    title: "Expense Tracker API",
+    description:
+      "A secure backend API built with Spring Boot for tracking personal expenses. Supports user authentication, categorization of expenses, and Swagger-based API documentation for testing and development.",
+    technologies: [
+      {
+        name: "Spring Boot",
+        icon: (
+          <Image
+            src="https://cdn.worldvectorlogo.com/logos/spring-3.svg"
+            alt="Spring Boot"
+            width={20}
+            height={20}
+          />
+        ),
+      },
+      {
+        name: "Java",
+        icon: (
+          <Image
+            src="https://cdn.worldvectorlogo.com/logos/java-14.svg"
+            alt="Java"
+            width={20}
+            height={20}
+          />
+        ),
+      },
+      {
+        name: "MySQL",
+        icon: (
+          <Image
+            src={MySQLImg}
+            alt="MySQL"
+            width={20}
+            height={20}
+            className="invert"
+          />
+        ),
+      },
+      {
+        name: "JWT",
+        icon: (
+          <Image
+            src="https://cdn.worldvectorlogo.com/logos/jwt-3.svg"
+            alt="JWT"
+            width={20}
+            height={20}
+            className="invert"
+          />
+        ),
+      },
+      {
+        name: "Swagger",
+        icon: (
+          <Image
+            src="https://static1.smartbear.co/swagger/media/assets/images/swagger_logo.svg"
+            alt="Swagger"
+            width={20}
+            height={20}
+          />
+        ),
+      },
+    ],
+    github: "https://github.com/0xYashAnand/expense-tracker-api",
+    live: "",
+    image: ExpenseTrackerImg,
   },
   {
     title: "Book Collection",
