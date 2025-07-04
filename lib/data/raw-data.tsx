@@ -1,4 +1,5 @@
 import redrobLogo from "@/public/redrob-logo.jpeg";
+import finarkeinLogo from "@/public/finarkein-logo.jpeg";
 import { CircuitBoard, Code2, Database, FileCode, Zap } from "lucide-react";
 import Image from "next/image";
 import BookCollectionImg from "@/public/book-collection-cover.png";
@@ -10,6 +11,24 @@ import MySQLImg from "@/public/mysql.svg";
 // Experiences
 
 export const experiences = [
+  {
+    title: "Software Engineer",
+    company: "Finarkein Analytics · Full-time",
+    logo: finarkeinLogo,
+    website: "https://www.finarkein.com/",
+    location: "Pune, MH",
+    period: "May 2025 - Present",
+    technologies: [
+      "Java",
+      "Spring Boot",
+      "PostgreSQL",
+      "Docker",
+      "Git",
+    ],
+    achievements: [
+     
+    ],
+  },
   {
     title: "Backend Developer",
     company: "Redrob By McKinley Rice · Full-time",
@@ -40,7 +59,7 @@ export const experiences = [
       "Designed MongoDB schema architectures improving query efficiency by 50% for high-traffic systems",
       "Implemented secure file upload system with AWS S3 handling 10k+ daily uploads with 99.99% reliability",
     ],
-  },
+  }
 ];
 
 export const technologyIcons: { [key: string]: JSX.Element } = {
@@ -115,6 +134,38 @@ export const technologyIcons: { [key: string]: JSX.Element } = {
     <Image
       src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg"
       alt="Git"
+      width={20}
+      height={20}
+    />
+  ),
+  Java: (
+    <Image
+      src="https://cdn.worldvectorlogo.com/logos/java-14.svg"
+      alt="Java"
+      width={20}
+      height={20}
+    />
+  ),
+  "Spring Boot": (
+    <Image
+      src="https://cdn.worldvectorlogo.com/logos/spring-3.svg"
+      alt="Spring Boot"
+      width={20}
+      height={20}
+    />
+  ),
+  PostgreSQL: (
+    <Image
+      src="https://cdn.worldvectorlogo.com/logos/postgresql.svg"
+      alt="PostgreSQL"
+      width={20}
+      height={20}
+    />
+  ),
+  Docker: (
+    <Image
+      src="https://cdn.worldvectorlogo.com/logos/docker.svg"
+      alt="Docker"
       width={20}
       height={20}
     />
@@ -469,6 +520,28 @@ export const email = "0xyashanand@gmail.com";
 
 export const technologies = [
   {
+    name: "Java",
+    icon: (
+      <Image
+        src="https://cdn.worldvectorlogo.com/logos/java-14.svg"
+        alt="Java"
+        width={20}
+        height={20}
+      />
+    ),
+  },
+  {
+    name: "Spring Boot",
+    icon: (
+      <Image
+        src="https://cdn.worldvectorlogo.com/logos/spring-3.svg"
+        alt="Spring Boot"
+        width={20}
+        height={20}
+      />
+    ),
+  },
+  {
     name: "Nest.js",
     icon: (
       <Image
@@ -491,7 +564,7 @@ export const technologies = [
       />
     ),
   },
-  { name: "Mongoose", icon: <Database className="h-5 w-5 text-green-500" /> },
+  // { name: "Mongoose", icon: <Database className="h-5 w-5 text-green-500" /> },
   {
     name: "MongoDB",
     icon: (
@@ -537,11 +610,22 @@ export const technologies = [
         className="invert"
       />
     ),
-  },
+  },  
   {
-    name: "MySQL",
-    icon: <Image src={MySQLImg} alt="MySQL" width={20} height={20} />,
+    name: "PostgreSQL",
+    icon: (
+      <Image
+        src="https://cdn.worldvectorlogo.com/logos/postgresql.svg"
+        alt="PostgreSQL"
+        width={20}
+        height={20}
+      />
+    ),
   },
+  // {
+  //   name: "MySQL",
+  //   icon: <Image src={MySQLImg} alt="MySQL" width={20} height={20} />,
+  // },
 ];
 
 // SKills

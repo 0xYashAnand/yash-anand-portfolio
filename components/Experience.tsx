@@ -165,7 +165,7 @@ export default function Experience() {
                     ))}
                   </div>
 
-                  <AnimatePresence>
+                  {/* <AnimatePresence>
                     {expandedIndex === index && (
                       <motion.div
                         initial={{ opacity: 0, height: 0 }}
@@ -246,7 +246,7 @@ export default function Experience() {
                         </div>
                       </motion.div>
                     )}
-                  </AnimatePresence>
+                  </AnimatePresence> */}
                 </motion.div>
               </motion.div>
             ))}
