@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://yashanand.live
+
+# Sitemaps
+Sitemap: https://yashanand.live/sitemap.xml
